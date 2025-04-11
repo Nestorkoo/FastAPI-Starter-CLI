@@ -1,3 +1,14 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "fastgen-cli"  # Унікальна назва
+version = "0.1.0"
+description = "FastAPI project generator with AuthX support"
+authors = [{name = "Dmytro Nestorko", email = "nestorkodmytro@gmail.com"}]
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.urls]
+Homepage = "https://github.com/Nestorkoo/FastAPI-Starter-CLI"

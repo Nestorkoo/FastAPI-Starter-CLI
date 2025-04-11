@@ -51,5 +51,5 @@ setup(
     ],
     python_requires=">=3.7",
     keywords="fastapi cli scaffolding jinja2",
-    url="https://github.com/ваш-репозиторій/fastcli",  # Додайте посилання на репозиторій
+    url="https://github.com/Nestorkoo/FastAPI-Starter-CLI",
 )
