@@ -14,3 +14,4 @@ project:
   features:
     redis: false          # Redis support
     celery: false         # Celery support
+
