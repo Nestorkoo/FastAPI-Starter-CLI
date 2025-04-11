@@ -1,14 +1,41 @@
+[build-system]
+requires = ["setuptools>=68.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
-name = "fastgen-cli"  # Унікальна назва
+name = "fastgen-cli"
 version = "0.1.0"
+authors = [
+  {name = "Dmytro Nestorko", email = "nestorkodmytro@gmail.com"},
+]
 description = "FastAPI project generator with AuthX support"
-authors = [{name = "Dmytro Nestorko", email = "nestorkodmytro@gmail.com"}]
 readme = "README.md"
 requires-python = ">=3.8"
+license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
 ]
+dependencies = [
+    "click>=8.0.0",
+    "jinja2>=3.0.0",
+    "fastapi>=0.68.0",
+    "uvicorn>=0.15.0",
+    "PyYAML>=6.0.0"
+]
+dynamic = ["keywords"]
 
 [project.urls]
 Homepage = "https://github.com/Nestorkoo/FastAPI-Starter-CLI"
+
+[project.scripts]
+fastcli = "fastgen.cli:main"
+
+[tool.setuptools]
+include-package-data = true
+packages = ["fastgen"]  # Вказуємо кореневий пакет
+package-dir = {"" = "fastgen"}  # Виправлений шлях
+
+[tool.setuptools.package-data]
+"fastgen.templates.async" = ["*.jinja"]
+"fastgen.templates.sync" = ["*.jinja"]
