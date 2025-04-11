@@ -1,0 +1,16 @@
+# fastgen.config.yaml
+project:
+  name: ConnectFlow       # Name of the project
+  async: true             # Enable async support
+  auth:
+    enabled: false        # Authentication support
+    type: jwt             # jwt or oauth2
+  database:
+    type: postgresql      # postgresql, sqlite, mysql
+    migrations: true      # Enable database migrations
+  docker:
+    enabled: false        # Enable Docker support
+    postgres: false       # Enable PostgreSQL Docker support
+  features:
+    redis: false          # Redis support
+    celery: false         # Celery support

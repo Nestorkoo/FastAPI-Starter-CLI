@@ -1,0 +1,2 @@
+[console_scripts]
+fastcli = fastgen.cli:main

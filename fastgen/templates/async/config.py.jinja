@@ -1,0 +1,8 @@
+from decouple import config, RepositoryEnv, Config
+
+try:
+    env_path = config(".env", default=".env")
+    env_config = Config(RepositoryEnv(env_path))
+    DATABASE_URL = f"postgresql+asyncpg://{env_config('DB_USER')}:{env_config('DB_PASSWORD')}@{env_config('DB_HOST')}:{env_config('DB_PORT')}/{env_config('DB_NAME')}"
+except Exception as e:
+    raise RuntimeError(f"Error occurred while setting up the database: {e}") from e

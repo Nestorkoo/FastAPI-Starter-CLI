@@ -1,0 +1,5 @@
+include README.md
+include LICENSE
+recursive-include fastgen/templates *.jinja
+include fastgen/fastgen.config.yaml
+include fastgen/config.py

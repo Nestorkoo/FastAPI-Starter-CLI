@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: fastcli
+Version: 0.1.0
+Summary: CLI tool for generating FastAPI projects with pre-configured architecture
+Home-page: https://github.com/ваш-репозиторій/fastcli
+Author: Dmytro
+Author-email: nestorkodmytro@gmail.com
+License: MIT
+Keywords: fastapi cli scaffolding jinja2
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: click>=8.0.0
+Requires-Dist: jinja2>=3.0.0
+Requires-Dist: fastapi>=0.68.0
+Requires-Dist: uvicorn>=0.15.0
+Requires-Dist: PyYAML>=6.0.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
