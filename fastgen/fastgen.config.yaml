@@ -4,7 +4,6 @@ project:
   async: true             # Enable async support
   auth:
     enabled: false        # Authentication support
-    type: jwt             # jwt or oauth2
   database:
     type: postgresql      # postgresql, sqlite, mysql
     migrations: true      # Enable database migrations
