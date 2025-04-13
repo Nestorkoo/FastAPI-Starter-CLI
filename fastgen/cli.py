@@ -3,8 +3,22 @@ import yaml
 from fastgen.utils.generator import generate_project
 from pathlib import Path
 from importlib import resources
+import subprocess
+from fastgen.utils.generator import render_template
 
 app = typer.Typer()
+
+
+def generate_alembic(project_root: str):
+    project_path = Path(project_root)
+    
+    subprocess.run(["alembic", "init", "migrations"], cwd=project_path)
+
+    ini_content = render_template("common/alembic.ini.jinja", {})
+
+    ini_path = project_path / "alembic.ini"
+    with ini_path.open("w") as f:
+        f.write(ini_content)
 
 @app.command()
 def init():
@@ -38,7 +52,7 @@ def create(
         if not conf.get("project"):
             typer.echo("Error: Invalid config - missing 'project' section", err=True)
             raise typer.Exit(code=1)
-            
+        
         project_conf = conf["project"]
         
         generate_project(
@@ -46,9 +60,10 @@ def create(
             async_mode=project_conf.get("async", False),
             with_auth=conf.get("auth", {}).get("enabled", False),
             with_docker=conf.get("docker", {}).get("enabled", False),
-            db_type=conf.get("database", {}).get("type", "sqlite")
+            db_migration=conf.get("database", {}).get("migration", False),
         )
-        
+        if project_conf.get("database", {}).get("migration", True):
+            generate_alembic(project_conf["name"])
         typer.echo(f"✅ Project '{project_conf['name']}' created successfully!")
         
     except yaml.YAMLError as e:
